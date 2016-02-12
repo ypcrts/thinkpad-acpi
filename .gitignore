@@ -1,0 +1,5 @@
+brightness
+!*.c
+!*.sh
+!*.bash
+!*.zsh
