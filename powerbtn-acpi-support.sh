@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script initiates a shutdown when the power putton has been
+# This script initiates a shutdown when the power button has been
 # pressed. Loosely based on the sample that ships with the acpid package.
 # If the acpid sample is present as a real config file (as it was in earlier
 # versions of acpid), we skip this script. (Purging and reinstalling acpid
@@ -19,15 +19,4 @@ if { CheckPolicy || HasLogindAndSystemd1Manager; }; then
 	exit 0
 fi
 
-if [ -x /etc/acpi/powerbtn.sh ] ; then
-	# Compatibility with old config script from acpid package
-	/etc/acpi/powerbtn.sh
-elif [ -x /etc/acpi/powerbtn.sh.dpkg-bak ] ; then
-        # Compatibility with old config script from acpid package
-	# which is still around because it was changed by the admin
-        /etc/acpi/powerbtn.sh.dpkg-bak
-else
-	# Normal handling.
-	/sbin/shutdown -h -P now "Power button pressed"
-fi
-
+/sbin/shutdown -h -P now "Power button pressed"
