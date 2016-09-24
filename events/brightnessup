@@ -1,2 +1,2 @@
 event=video/brightnessup
-action=/etc/acpi/brightness.sh up
+action=/usr/local/bin/thinkbacklight -u
